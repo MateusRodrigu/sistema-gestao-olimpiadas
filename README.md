@@ -47,7 +47,7 @@
 
 ---
 
-###  Comitê Olímpico
+###  Comitê Olímpico Internacional 
 - **UC14 - Cadastrar Competições**  
   O comitê cria novas competições informando modalidade, data, horário e local.
 
