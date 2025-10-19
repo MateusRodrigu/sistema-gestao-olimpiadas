@@ -1,0 +1,97 @@
+Table Pais {
+  id_pais int [pk, increment]
+  nome varchar(100)
+  sigla varchar(3)
+}
+
+Table Modalidade {
+  id_modalidade int [pk, increment]
+  nome varchar(100)
+  descricao varchar(255)
+}
+
+Table Local {
+  id_local int [pk, increment]
+  nome varchar(100)
+  endereco varchar(200)
+  capacidade int
+}
+
+Table Adiministradores { //comite olimpico internacional
+  id_comite int [pk, increment]
+  nome varchar(100)
+  usuario varchar(50)
+  senha varchar(100)
+}
+
+Table Federacao {
+  id_federacao int [pk, increment]
+  nome varchar(100)
+  pais_id int 
+  modalidade_id int 
+}
+
+Table Atleta {
+  id_atleta int [pk, increment]
+  nome varchar(100)
+  data_nascimento date
+  sexo varchar(10)
+  pais_id int 
+  federacao_id int
+}
+
+Table Competicao {
+  id_competicao int [pk, increment]
+  nome varchar(100)
+  data date
+  hora datetime
+  local_id int
+  modalidade_id int 
+  comite_id int 
+}
+
+Table Inscricao {
+  id_inscricao int [pk, increment]
+  atleta_id int 
+  competicao_id int
+  data_inscricao date
+  status varchar(20)
+}
+
+Table Resultado {
+  id_resultado int [pk, increment]
+  competicao_id int
+  atleta_id int 
+  posicao int
+  tempo varchar(50)
+  pontuacao decimal(10,2)
+}
+
+Table Medalha {
+  id_medalha int [pk, increment]
+  tipo varchar(10) // Ouro, Prata, Bronze
+  pais_id int 
+  competicao_id int
+  atleta_id int 
+}
+
+
+Ref: Federacao.pais_id > Pais.id_pais
+Ref: Atleta.pais_id > Pais.id_pais
+Ref: Medalha.pais_id > Pais.id_pais
+
+Ref: Atleta.federacao_id > Federacao.id_federacao
+Ref: Federacao.modalidade_id > Modalidade.id_modalidade
+
+Ref: Competicao.modalidade_id > Modalidade.id_modalidade
+Ref: Competicao.local_id > Local.id_local
+Ref: Competicao.comite_id > Adiministradores.id_comite
+
+Ref: Inscricao.atleta_id > Atleta.id_atleta
+Ref: Inscricao.competicao_id > Competicao.id_competicao
+
+Ref: Resultado.competicao_id > Competicao.id_competicao
+Ref: Resultado.atleta_id > Atleta.id_atleta
+
+Ref: Medalha.competicao_id > Competicao.id_competicao
+Ref: Medalha.atleta_id > Atleta.id_atleta
