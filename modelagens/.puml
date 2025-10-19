@@ -1,0 +1,101 @@
+@startuml
+title Diagrama de Pacotes - Sistema de Gestão das Olimpíadas (SGO)
+
+'==========================
+' Pacote principal do sistema
+'==========================
+package "SGO - Sistema de Gestão das Olimpíadas" {
+
+    '--------------------------
+    ' Camada de Apresentação
+    '--------------------------
+    package "br.sgo.ui" as UI {
+        [TelaCadastroAtleta]
+        [TelaCadastroCompeticao]
+        [TelaGerarRelatorio]
+        [TelaLoginComite]
+    }
+
+    '--------------------------
+    ' Camada de Controle
+    '--------------------------
+    package "br.sgo.controller" as Controller {
+        [AtletaController]
+        [CompeticaoController]
+        [MedalhaController]
+        [RelatorioController]
+        [LoginController]
+    }
+
+    '--------------------------
+    ' Camada de Serviço (Regras de Negócio)
+    '--------------------------
+    package "br.sgo.service" as Service {
+        [AtletaService]
+        [CompeticaoService]
+        [MedalhaService]
+        [ResultadoService]
+        [RelatorioService]
+    }
+
+    '--------------------------
+    ' Camada de Modelo (Entidades)
+    '--------------------------
+    package "br.sgo.model" as Model {
+        [Atleta]
+        [Pais]
+        [Federacao]
+        [Competicao]
+        [Modalidade]
+        [Local]
+        [Resultado]
+        [Medalha]
+        [ComiteOlimpico]
+        [Inscricao]
+    }
+
+    '--------------------------
+    ' Camada de Persistência
+    '--------------------------
+    package "br.sgo.repository" as Repository {
+        [AtletaRepository]
+        [CompeticaoRepository]
+        [MedalhaRepository]
+        [ResultadoRepository]
+        [PaisRepository]
+        [InscricaoRepository]
+    }
+
+    '--------------------------
+    ' Pacote Utilitário
+    '--------------------------
+    package "br.sgo.util" as Util {
+        [Validador]
+        [GeradorRelatorio]
+        [ConexaoBD]
+    }
+}
+
+'====================================
+' Dependências entre os pacotes
+'====================================
+
+' A interface usa os controladores
+UI --> Controller : interação do usuário
+
+' Controladores acionam os serviços
+Controller --> Service : regras de negócio
+
+' Serviços utilizam repositórios e entidades
+Service --> Repository : acesso a dados
+Service --> Model : manipulação de entidades
+
+' Repositórios usam o modelo
+Repository --> Model : persistência de dados
+
+' Utilitários podem ser usados em qualquer camada
+UI --> Util
+Controller --> Util
+Service --> Util
+Repository --> Util
+@enduml
