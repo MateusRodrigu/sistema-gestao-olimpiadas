@@ -66,6 +66,11 @@
 - **UC19 - Gerar Relatórios de Desempenho**  
   O comitê gera relatórios de desempenho por atleta, federação e país.
 
+  ##Diagrmas 
+
+  <img width="500px" height="500px" src="../diagrama-de-caso-de-uso.png"/>
+
+
 - **UC20 - Monitorar Quadro de Medalhas**  
   O comitê acompanha e atualiza o quadro geral de medalhas em tempo real.
 
