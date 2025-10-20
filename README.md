@@ -65,14 +65,26 @@
 
 - **UC19 - Gerar Relatórios de Desempenho**  
   O comitê gera relatórios de desempenho por atleta, federação e país.
-
-  ##Diagrmas 
-
-  <img width="500px" height="500px" src="../diagrama-de-caso-de-uso.png"/>
-
-
 - **UC20 - Monitorar Quadro de Medalhas**  
   O comitê acompanha e atualiza o quadro geral de medalhas em tempo real.
 
 - **UC21 - Validar Conformidade das Federações e Atletas**  
   O comitê verifica se as federações e atletas estão de acordo com as regras oficiais do evento.
+
+## Diagramas do Sistema de Gestão de Olimpíadas
+
+### Diagrama de Caso de Uso
+<img width="500px" height="500px" src="./diagrama-de-caso-de-uso.png"/>
+
+### Diagrama de Classes
+<img width="500px" height="500px" src="./diagrama-de-classes.png"/>
+
+### Diagrama de Componentes
+<img width="500px" height="500px" src="./diagrama-de-componentes.png"/>
+
+### Diagrama de Implementação
+<img width="500px" height="500px" src="./diagrama-de-implementacao.png"/>
+
+### Diagrama de Pacotes
+<img width="500px" height="500px" src="./diagrama-de-pacotes.png"/>
+
